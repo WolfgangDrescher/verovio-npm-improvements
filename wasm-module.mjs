@@ -1,4 +1,4 @@
-import Module from './verovio.js';
+import Module from './verovio.mjs';
 
 const ModulePromise = Module();
 

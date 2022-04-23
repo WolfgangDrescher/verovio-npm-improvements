@@ -1,7 +1,7 @@
 import { VerovioToolkit } from './verovio-toolkit.mjs';
-import VerovioModule from './wasm-module.mjs';
+import VerovioWasmFactory from './verovio.mjs';
 
 export {
-    VerovioModule,
+    VerovioWasmFactory,
     VerovioToolkit,
 };

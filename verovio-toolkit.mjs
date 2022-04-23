@@ -1,8 +1,6 @@
 import { createEmscriptenProxy } from './emscripten-proxy.mjs';
 
-export { VerovioToolkit };
-
-class VerovioToolkit {
+export class VerovioToolkit {
 
     constructor(VerovioModule) {
         this.VerovioModule = VerovioModule;

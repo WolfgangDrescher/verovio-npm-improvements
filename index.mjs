@@ -1,11 +1,11 @@
 import { VerovioToolkit } from './verovio-toolkit.mjs';
 import { emscriptenProxy } from './emscripten-proxy.mjs';
-import Module from './wasm-module.mjs';
+import VerovioModule from './wasm-module.mjs';
 
-export default {
-    toolkit: VerovioToolkit,
-    module: Module,
-}
+export {
+    VerovioModule,
+    VerovioToolkit,
+};
 
 // If the window object is defined (if we are not within a WebWorker)...
 if ((typeof window !== 'undefined') && window.addEventListener) {

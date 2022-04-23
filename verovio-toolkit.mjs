@@ -1,5 +1,5 @@
-import { emscriptenProxy } from './emscripten-proxy';
-import Module from './verovio';
+import { emscriptenProxy } from './emscripten-proxy.mjs';
+import Module from './verovio.js';
 
 export { VerovioToolkit };
 

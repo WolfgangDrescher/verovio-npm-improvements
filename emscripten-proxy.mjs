@@ -1,4 +1,4 @@
-import Module from './verovio';
+import Module from './verovio.js';
 
 export { emscriptenProxy };
 

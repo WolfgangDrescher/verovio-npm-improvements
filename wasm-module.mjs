@@ -1,9 +1,7 @@
 import Module from './verovio.js';
 
-console.log(Module);
+const ModulePromise = Module();
 
-Module().then((instance) => {
-    console.log(instance);
-});
+console.log(ModulePromise, ModulePromise.promise, ModulePromise.ready);
 
-export default Module();
+export default ModulePromise;

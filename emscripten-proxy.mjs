@@ -1,4 +1,4 @@
-import Module from './verovio.js';
+import Module from './wasm-module.mjs';
 
 export { emscriptenProxy };
 

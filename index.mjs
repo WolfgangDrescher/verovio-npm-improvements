@@ -1,6 +1,6 @@
 import { VerovioToolkit } from './verovio-toolkit.mjs';
 import { emscriptenProxy } from './emscripten-proxy.mjs';
-import { Module } from './verovio.js';
+import { Module } from './wasm-module.mjs';
 
 export default {
     toolkit: VerovioToolkit,

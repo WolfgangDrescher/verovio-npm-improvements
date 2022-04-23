@@ -3,8 +3,6 @@ import Module from './wasm-module.mjs';
 
 export { VerovioToolkit };
 
-VerovioToolkit.instances = [];
-
 class VerovioToolkit {
 
     constructor() {
@@ -174,3 +172,5 @@ class VerovioToolkit {
         return JSON.parse(emscriptenProxy.validatePAE(this.ptr, data));
     }
 }
+
+VerovioToolkit.instances = [];

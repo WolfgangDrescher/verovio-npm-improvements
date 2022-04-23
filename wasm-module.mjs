@@ -2,6 +2,6 @@ import Module from './verovio.js';
 
 const ModulePromise = Module();
 
-console.log(ModulePromise, ModulePromise.promise, ModulePromise.ready);
+console.log(ModulePromise, Module);
 
 export default ModulePromise;

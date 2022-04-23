@@ -1,3 +1,3 @@
-import Module from 'verovio.js';
+import Module from './verovio.js';
 
 export default Module();

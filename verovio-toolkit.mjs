@@ -1,12 +1,13 @@
-import { emscriptenProxy } from './emscripten-proxy.mjs';
-import Module from './wasm-module.mjs';
+import { createEmscriptenProxy } from './emscripten-proxy.mjs';
 
 export { VerovioToolkit };
 
 class VerovioToolkit {
 
-    constructor() {
-        this.ptr = emscriptenProxy.constructor();
+    constructor(VerovioModule) {
+        this.VerovioModule = VerovioModule;
+        this.proxy = createEmscriptenProxy(VerovioModule);
+        this.ptr = this.proxy.constructor();
         console.debug('Creating toolkit instance');
         VerovioToolkit.instances.push(this.ptr);
     }
@@ -14,95 +15,95 @@ class VerovioToolkit {
     destroy() {
         VerovioToolkit.instances.splice(VerovioToolkit.instances.indexOf(this.ptr), 1);
         console.debug('Deleting toolkit instance');
-        emscriptenProxy.destructor(this.ptr);
+        this.proxy.destructor(this.ptr);
     }
 
     edit(editorAction) {
-        return emscriptenProxy.edit(this.ptr, JSON.stringify(editorAction));
+        return this.proxy.edit(this.ptr, JSON.stringify(editorAction));
     }
 
     editInfo() {
-        return JSON.parse(emscriptenProxy.editInfo(this.ptr));
+        return JSON.parse(this.proxy.editInfo(this.ptr));
     }
 
     getAvailableOptions() {
-        return JSON.parse(emscriptenProxy.getAvailableOptions(this.ptr));
+        return JSON.parse(this.proxy.getAvailableOptions(this.ptr));
     }
 
     getDescriptiveFeatures(options) {
-        return JSON.parse(emscriptenProxy.getDescriptiveFeatures(this.ptr, JSON.stringify(options)));
+        return JSON.parse(this.proxy.getDescriptiveFeatures(this.ptr, JSON.stringify(options)));
     }
 
     getElementAttr(xmlId) {
-        return JSON.parse(emscriptenProxy.getElementAttr(this.ptr, xmlId));
+        return JSON.parse(this.proxy.getElementAttr(this.ptr, xmlId));
     }
 
     getElementsAtTime(millisec) {
-        return JSON.parse(emscriptenProxy.getElementsAtTime(this.ptr, millisec));
+        return JSON.parse(this.proxy.getElementsAtTime(this.ptr, millisec));
     }
 
     getExpansionIdsForElement(xmlId) {
-        return JSON.parse(emscriptenProxy.getExpansionIdsForElement(this.ptr, xmlId));
+        return JSON.parse(this.proxy.getExpansionIdsForElement(this.ptr, xmlId));
     }
 
     getHumdrum() {
-        return emscriptenProxy.getHumdrum(this.ptr);
+        return this.proxy.getHumdrum(this.ptr);
     }
 
     convertHumdrumToHumdrum(data) {
-        return emscriptenProxy.convertHumdrumToHumdrum(this.ptr, data);
+        return this.proxy.convertHumdrumToHumdrum(this.ptr, data);
     }
 
     convertMEIToHumdrum(data) {
-        return emscriptenProxy.convertMEIToHumdrum(this.ptr, data);
+        return this.proxy.convertMEIToHumdrum(this.ptr, data);
     }
 
     getLog() {
-        return emscriptenProxy.getLog(this.ptr);
+        return this.proxy.getLog(this.ptr);
     }
 
     getMEI(param1) {
-        return emscriptenProxy.getMEI(this.ptr, JSON.stringify(param1));
+        return this.proxy.getMEI(this.ptr, JSON.stringify(param1));
     }
 
     getMIDIValuesForElement(xmlId) {
-        return JSON.parse(emscriptenProxy.getMIDIValuesForElement(this.ptr, xmlId));
+        return JSON.parse(this.proxy.getMIDIValuesForElement(this.ptr, xmlId));
     }
 
     getNotatedIdForElement(xmlId) {
-        return emscriptenProxy.getNotatedIdForElement(this.ptr, xmlId);
+        return this.proxy.getNotatedIdForElement(this.ptr, xmlId);
     }
 
     getOptions(defaultValues) {
-        return JSON.parse(emscriptenProxy.getOptions(this.ptr, defaultValues));
+        return JSON.parse(this.proxy.getOptions(this.ptr, defaultValues));
     }
 
     getPageCount() {
-        return emscriptenProxy.getPageCount(this.ptr);
+        return this.proxy.getPageCount(this.ptr);
     }
 
     getPageWithElement(xmlId) {
-        return emscriptenProxy.getPageWithElement(this.ptr, xmlId);
+        return this.proxy.getPageWithElement(this.ptr, xmlId);
     }
 
     getTimeForElement(xmlId) {
-        return emscriptenProxy.getTimeForElement(this.ptr, xmlId);
+        return this.proxy.getTimeForElement(this.ptr, xmlId);
     }
 
     getTimesForElement(xmlId) {
-        return JSON.parse(emscriptenProxy.getTimesForElement(this.ptr, xmlId));
+        return JSON.parse(this.proxy.getTimesForElement(this.ptr, xmlId));
     }
 
     getVersion() {
-        return emscriptenProxy.getVersion(this.ptr);
+        return this.proxy.getVersion(this.ptr);
     }
 
     loadData(data) {
-        return emscriptenProxy.loadData(this.ptr, data);
+        return this.proxy.loadData(this.ptr, data);
     }
 
     loadZipDataBase64(data) {
-        return emscriptenProxy.loadZipDataBase64(this.ptr, data);
+        return this.proxy.loadZipDataBase64(this.ptr, data);
     }
 
     loadZipDataBuffer(data) {
@@ -112,64 +113,64 @@ class VerovioToolkit {
         }
         var dataArray = new Uint8Array(data); 
         var dataSize = dataArray.length * dataArray.BYTES_PER_ELEMENT;
-        var dataPtr = Module._malloc(dataSize);
-        Module.HEAPU8.set(dataArray, dataPtr);
-        var res = emscriptenProxy.loadZipDataBuffer(this.ptr, dataPtr, dataSize);
-        Module._free(dataPtr);
+        var dataPtr = this.VerovioModule._malloc(dataSize);
+        this.VerovioModule.HEAPU8.set(dataArray, dataPtr);
+        var res = this.proxy.loadZipDataBuffer(this.ptr, dataPtr, dataSize);
+        this.VerovioModule._free(dataPtr);
         return res;
     }
 
     redoLayout(options = {}) {
-        emscriptenProxy.redoLayout(this.ptr, JSON.stringify(options));
+        this.proxy.redoLayout(this.ptr, JSON.stringify(options));
     }
 
     redoPagePitchPosLayout() {
-        emscriptenProxy.redoPagePitchPosLayout(this.ptr);
+        this.proxy.redoPagePitchPosLayout(this.ptr);
     }
 
     renderData(data, options) {
-        return emscriptenProxy.renderData(this.ptr, data, JSON.stringify(options));
+        return this.proxy.renderData(this.ptr, data, JSON.stringify(options));
     }
 
     renderPage(pageNo, options) {
         console.warn('Method renderPage is deprecated; use renderToSVG instead');
-        return emscriptenProxy.renderToSVG(this.ptr, pageNo, JSON.stringify(options));
+        return this.proxy.renderToSVG(this.ptr, pageNo, JSON.stringify(options));
     }
 
     renderToMIDI(options) {
-        return emscriptenProxy.renderToMIDI(this.ptr, JSON.stringify(options));
+        return this.proxy.renderToMIDI(this.ptr, JSON.stringify(options));
     }
 
     renderToMidi(options) {
         console.warn('Method renderToMidi is deprecated; use renderToMIDI instead');
-        return emscriptenProxy.renderToMIDI(this.ptr, JSON.stringify(options));
+        return this.proxy.renderToMIDI(this.ptr, JSON.stringify(options));
     }
 
     renderToPAE() {
-        return emscriptenProxy.renderToPAE(this.ptr);
+        return this.proxy.renderToPAE(this.ptr);
     }
 
     renderToSVG(pageNo, options) {
-        return emscriptenProxy.renderToSVG(this.ptr, pageNo, JSON.stringify(options));
+        return this.proxy.renderToSVG(this.ptr, pageNo, JSON.stringify(options));
     }
 
     renderToTimemap(options = {}) {
-        return JSON.parse(emscriptenProxy.renderToTimemap(this.ptr, JSON.stringify(options)));
+        return JSON.parse(this.proxy.renderToTimemap(this.ptr, JSON.stringify(options)));
     }
 
     resetXmlIdSeed(seed) {
-        return emscriptenProxy.resetXmlIdSeed(this.ptr, seed);
+        return this.proxy.resetXmlIdSeed(this.ptr, seed);
     }
 
     setOptions(options) {
-        emscriptenProxy.setOptions(this.ptr, JSON.stringify(options));
+        this.proxy.setOptions(this.ptr, JSON.stringify(options));
     }
 
     validatePAE(data) {
         if (data instanceof Object) {
             data = JSON.stringify(data)
         }
-        return JSON.parse(emscriptenProxy.validatePAE(this.ptr, data));
+        return JSON.parse(this.proxy.validatePAE(this.ptr, data));
     }
 }
 

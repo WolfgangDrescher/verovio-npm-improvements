@@ -9,7 +9,9 @@
         ".": {
             "import": "./dist/index.mjs",
             "require": "./dist/index.cjs"
-        }
+        },
+        "./wasm/verovio-toolkit-wasm.js": "./wasm/verovio-toolkit-wasm.js",
+        "./wasm/verovio-toolkit-wasm-hum.js": "./wasm/verovio-toolkit-wasm-hum.js"
     },
     "files": ["dist", "wasm"],
     "scripts": {

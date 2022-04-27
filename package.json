@@ -3,6 +3,7 @@
     "version": "3.9.0",
     "description": "This is the stable version of the verovio package",
     "main": "index.mjs",
+    "type": "module",
     "keywords": [
         "music",
         "music notation",

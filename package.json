@@ -5,6 +5,7 @@
     "type": "module",
     "main": "dist/index.cjs",
     "module": "dist/index.mjs",
+    "files": ["dist", "wasm"],
     "scripts": {
         "build": "npm run build:cjs && npm run build:esm",
         "build:cjs": "esbuild src/index.js --bundle --minify --format=cjs --outfile=dist/index.cjs",

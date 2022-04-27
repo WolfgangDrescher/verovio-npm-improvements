@@ -1,4 +1,4 @@
-import { createEmscriptenProxy } from './emscripten-proxy.mjs';
+import { createEmscriptenProxy } from './emscripten-proxy.js';
 
 export class VerovioToolkit {
 

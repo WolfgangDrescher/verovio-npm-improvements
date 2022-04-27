@@ -4,6 +4,11 @@
     "description": "This is the stable version of the verovio package",
     "main": "index.mjs",
     "type": "module",
+    "scripts": {
+        "build": "npm run build:cjs && npm run build:esm",
+        "build:cjs": "esbuild src/index.js --bundle --minify --format=cjs --outfile=dist/index.cjs",
+        "build:esm": "esbuild src/index.js --bundle --minify --format=esm --outfile=dist/index.mjs"
+    },
     "keywords": [
         "music",
         "music notation",

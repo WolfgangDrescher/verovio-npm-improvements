@@ -1,8 +1,6 @@
 export const createEmscriptenProxy = (Module) => {
-    console.log(Module);
     return new Proxy({}, {
         get: (target, method) => {
-            console.log(method);
             return (...args) => {
                 return getToolkitFunction(Module, method)(args);
             };

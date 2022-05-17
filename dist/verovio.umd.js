@@ -129,10 +129,9 @@
     class VerovioToolkit {
 
         constructor(VerovioModule) {
-            this.VerovioModule = VerovioModule || (typeof window !== 'undefined' ? window.verovio.module : null);
-            console.log(this.VerovioModule);
+            this.VerovioModule = VerovioModule || (typeof Module !== 'undefined' ? Module : null);
             if(!this.VerovioModule) {
-                throw new Error('VerovioToolkit could not find emcripten module.');
+                throw new Error('VerovioToolkit could not find emscripten module.');
             }
             this.proxy = createEmscriptenProxy(VerovioModule);
             this.ptr = this.proxy.constructor();

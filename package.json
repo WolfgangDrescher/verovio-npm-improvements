@@ -13,7 +13,10 @@
         "./wasm/verovio-toolkit-wasm.js": "./wasm/verovio-toolkit-wasm.js",
         "./wasm/verovio-toolkit-wasm-hum.js": "./wasm/verovio-toolkit-wasm-hum.js"
     },
-    "files": ["dist", "wasm"],
+    "files": [
+        "dist",
+        "wasm"
+    ],
     "scripts": {
         "build": "npm run build:cjs && npm run build:esm",
         "build:cjs": "esbuild src/index.js --bundle --minify --format=cjs --outfile=dist/index.cjs",

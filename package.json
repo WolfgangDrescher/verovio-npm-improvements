@@ -13,7 +13,7 @@
     },
     "files": [
         "dist",
-        "wasm"
+        "modules"
     ],
     "scripts": {
         "build": "rollup --config"

@@ -15,6 +15,36 @@ export default [
         ],
     },
     {
+        input: 'src/legacy.js',
+        output: [
+            {
+                file: 'dist/verovio-toolkit.js',
+                format: 'umd',
+                name: 'verovio',
+            },
+        ],
+    },
+    {
+        input: 'src/legacy-hum.js',
+        output: [
+            {
+                file: 'dist/verovio-toolkit-hum.js',
+                format: 'umd',
+                name: 'verovio',
+            },
+        ],
+    },
+    {
+        input: 'src/legacy-light.js',
+        output: [
+            {
+                file: 'dist/verovio-toolkit-light.js',
+                format: 'umd',
+                name: 'verovio',
+            },
+        ],
+    },
+    {
         input: 'src/legacy-wasm.js',
         output: [
             {

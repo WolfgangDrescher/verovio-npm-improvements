@@ -3,13 +3,13 @@
     "version": "3.9.0",
     "description": "This is the stable version of the verovio package",
     "type": "module",
-    "main": "dist/index.cjs",
-    "module": "dist/index.mjs",
+    "main": "dist/verovio.umd.js",
+    "module": "dist/verovio.es.js",
     "exports": {
         ".": {
-            "import": "./dist/index.mjs",
-            "require": "./dist/index.cjs"
-        },
+            "import": "./dist/verovio.es.js",
+            "require": "./dist/verovio.umd.cjs"
+        }
     },
     "files": [
         "dist",

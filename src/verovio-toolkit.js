@@ -3,7 +3,7 @@ import { createEmscriptenProxy } from './emscripten-proxy.js';
 export class VerovioToolkit {
 
     constructor(VerovioModule) {
-        this.VerovioModule = VerovioModule;
+        this.VerovioModule = VerovioModule || (typeof Module !== 'undefined' ? Module : null);
         this.proxy = createEmscriptenProxy(VerovioModule);
         this.ptr = this.proxy.constructor();
         console.debug('Creating toolkit instance');

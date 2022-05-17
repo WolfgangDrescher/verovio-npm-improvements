@@ -4,6 +4,9 @@ export class VerovioToolkit {
 
     constructor(VerovioModule) {
         this.VerovioModule = VerovioModule || (typeof Module !== 'undefined' ? Module : null);
+        if(!this.VerovioModule) {
+            throw new Error('VerovioToolkit could not find emscripten module.');
+        }
         this.proxy = createEmscriptenProxy(VerovioModule);
         this.ptr = this.proxy.constructor();
         console.debug('Creating toolkit instance');

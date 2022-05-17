@@ -9,7 +9,8 @@
         ".": {
             "import": "./dist/verovio.es.js",
             "require": "./dist/verovio.umd.cjs"
-        }
+        },
+        "./wasm": "./modules/verovio-toolkit-wasm.js"
     },
     "files": [
         "dist",

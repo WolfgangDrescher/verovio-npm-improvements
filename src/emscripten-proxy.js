@@ -2,7 +2,7 @@ export const createEmscriptenProxy = (Module) => {
     return new Proxy({}, {
         get: (target, method) => {
             return (...args) => {
-                return getToolkitFunction(Module, method)(args);
+                return getToolkitFunction(Module, method)(...args);
             };
         },
     });

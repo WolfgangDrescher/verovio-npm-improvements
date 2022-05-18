@@ -8,7 +8,7 @@
     "exports": {
         ".": {
             "import": "./dist/verovio.es.js",
-            "require": "./dist/verovio.umd.cjs"
+            "require": "./dist/verovio.umd.js"
         },
         "./wasm": "./modules/verovio-toolkit-wasm.js",
         "./legacy/hum": {

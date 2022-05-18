@@ -21,7 +21,7 @@
             "require": "./dist/verovio-toolkit-wasm.js"
         },
         "./legacy": {
-            "require": "./dist/verovio-toolkit-legacy.js"
+            "require": "./dist/verovio-toolkit.js"
         }
     },
     "files": [

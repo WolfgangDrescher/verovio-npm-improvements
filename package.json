@@ -2,7 +2,6 @@
     "name": "verovio",
     "version": "3.9.0",
     "description": "This is the stable version of the verovio package",
-    "type": "module",
     "main": "dist/verovio.umd.js",
     "module": "dist/verovio.es.js",
     "exports": {

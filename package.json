@@ -11,10 +11,18 @@
             "require": "./dist/verovio.umd.cjs"
         },
         "./wasm": "./modules/verovio-toolkit-wasm.js",
-        "./legacy/hum": "./dist/verovio-toolkit-hum.js",
-        "./legacy/light": "./dist/verovio-toolkit-light.js",
-        "./legacy/wasm": "./dist/verovio-toolkit-wasm.js",
-        "./legacy": "./dist/verovio-toolkit.js"
+        "./legacy/hum": {
+            "require": "./dist/verovio-toolkit-hum.js"
+        },
+        "./legacy/light": {
+            "require": "./dist/verovio-toolkit-light.js"
+        },
+        "./legacy/wasm": {
+            "require": "./dist/verovio-toolkit-wasm.js"
+        },
+        "./legacy": {
+            "require": "./dist/verovio-toolkit-legacy.js"
+        }
     },
     "files": [
         "dist",

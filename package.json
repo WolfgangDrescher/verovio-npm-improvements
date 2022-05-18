@@ -10,7 +10,11 @@
             "import": "./dist/verovio.es.js",
             "require": "./dist/verovio.umd.cjs"
         },
-        "./wasm": "./modules/verovio-toolkit-wasm.js"
+        "./wasm": "./modules/verovio-toolkit-wasm.js",
+        "./legacy/hum": "./dist/verovio-toolkit-hum.js",
+        "./legacy/light": "./dist/verovio-toolkit-light.js",
+        "./legacy/wasm": "./dist/verovio-toolkit-wasm.js",
+        "./legacy": "./dist/verovio-toolkit.js"
     },
     "files": [
         "dist",

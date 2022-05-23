@@ -1,4 +1,4 @@
-// import commonjs from '@rollup/plugin-commonjs';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default [
     {
@@ -55,13 +55,13 @@ export default [
                 name: 'verovio',
             },
         ],
-        // plugins: [commonjs({
-        //     transformMixedEsModules: true,
-        //     ignore: [
-        //         'path',
-        //         'fs',
-        //         'crypto',
-        //     ],
-        // })],
+        plugins: [commonjs({
+            // transformMixedEsModules: true,
+            ignore: [
+                'path',
+                'fs',
+                'crypto',
+            ],
+        })],
     },
 ];

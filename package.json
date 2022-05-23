@@ -5,13 +5,11 @@
     "main": "dist/verovio-toolkit-wasm.js",
     "exports": {
         ".": "./dist/verovio-toolkit-wasm.js",
-        "./esm": "./dist/verovio.es.mjs",
-        "./cjs": "./dist/verovio.umd.js",
-        "./wasm": "./modules/verovio-toolkit-wasm.js",
-        "./legacy/hum": "./dist/verovio-toolkit-hum.js",
-        "./legacy/light": "./dist/verovio-toolkit-light.js",
-        "./legacy/wasm": "./dist/verovio-toolkit-wasm.js",
-        "./legacy": "./dist/verovio-toolkit.js"
+        "./next": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.cjs"
+        },
+        "./wasm": "./modules/verovio-toolkit-wasm.js"
     },
     "files": [
         "dist",

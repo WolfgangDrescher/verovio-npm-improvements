@@ -3,10 +3,10 @@
     "version": "3.9.0",
     "description": "This is the stable version of the verovio package",
     "main": "dist/verovio.umd.js",
-    "module": "dist/verovio.es.js",
+    "module": "dist/verovio.es.mjs",
     "exports": {
         ".": {
-            "import": "./dist/verovio.es.js",
+            "import": "./dist/verovio.es.mjs",
             "require": "./dist/verovio.umd.js"
         },
         "./wasm": "./modules/verovio-toolkit-wasm.js",

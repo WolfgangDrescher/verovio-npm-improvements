@@ -8,7 +8,7 @@ export default [
                 name: 'verovio',
             },
             {
-                file: 'dist/verovio.es.js',
+                file: 'dist/verovio.es.mjs',
                 format: 'es',
                 name: 'verovio',
             },

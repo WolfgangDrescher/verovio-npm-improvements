@@ -5,13 +5,13 @@ export default [
         input: 'src/index.js',
         output: [
             {
-                file: 'dist/verovio.umd.js',
-                format: 'umd',
+                file: 'dist/index.mjs',
+                format: 'es',
                 name: 'verovio',
             },
             {
-                file: 'dist/verovio.es.mjs',
-                format: 'es',
+                file: 'dist/index.cjs',
+                format: 'cjs',
                 name: 'verovio',
             },
         ],

@@ -2,13 +2,11 @@
     "name": "verovio",
     "version": "3.9.0",
     "description": "This is the stable version of the verovio package",
-    "main": "dist/verovio.umd.js",
-    "module": "dist/verovio.es.mjs",
+    "main": "dist/verovio-toolkit-wasm.js",
     "exports": {
-        ".": {
-            "import": "./dist/verovio.es.mjs",
-            "require": "./dist/verovio.umd.js"
-        },
+        ".": "./dist/verovio-toolkit-wasm.js",
+        "./esm": "./dist/verovio.es.mjs",
+        "./cjs": "./dist/verovio.umd.js",
         "./wasm": "./modules/verovio-toolkit-wasm.js",
         "./legacy/hum": "./dist/verovio-toolkit-hum.js",
         "./legacy/light": "./dist/verovio-toolkit-light.js",

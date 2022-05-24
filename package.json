@@ -9,7 +9,7 @@
             "import": "./dist/index.mjs",
             "require": "./dist/index.cjs"
         },
-        "./wasm": "./modules/verovio-toolkit-wasm.js"
+        "./wasm": "./modules/verovio-toolkit-wasm-modularize.js"
     },
     "files": [
         "dist",
